@@ -1,4 +1,4 @@
-import { currentUser } from "../main.js";
+import { currentUser } from "../logic/login.js";
 
 export const Helper = {
   getBalance() {

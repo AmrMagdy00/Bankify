@@ -1,7 +1,9 @@
 
-import { DOM } from "../elements";
-import { UI } from "../ui/displayMovements";
-import { accounts } from "../data/accounts";
+import { DOM } from "../elements.js";
+import { UI } from "../ui/displayMovements.js";
+import { accounts } from "../data/accounts.js";
+
+export let currentUser = null;
 export const login = function () {
 
     if (DOM.inputs.loginUsername.value == "" || DOM.inputs.loginPin.value == "") return;
