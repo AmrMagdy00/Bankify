@@ -7,6 +7,9 @@ export const UI = {
     this.displayOutMovements();
     this.displayBalance();
     this.displayInterestRate();
+    this.displayUserName();
+    this.hideLoginForm();
+    this.displayAppInterface();
   },
   displayMovements(movements) {
     DOM.containers.movements.innerHTML = ""; // clear previous
@@ -46,5 +49,18 @@ export const UI = {
   displayInterestRate() {
     const Rate = Helper.getInterest();
     DOM.labels.sumInterest.textContent = `${Rate}€`;
+  },
+
+  displayUserName() {
+    const userName = Helper.getuserName();
+    DOM.labels.welcome.textContent = `Welcome ${userName}`;
+  },
+
+  hideLoginForm() {
+    const formLogin = (DOM.forms.login.style.display = "none");
+  },
+
+  displayAppInterface() {
+    DOM.containers.app.style.opacity = 1;
   },
 };

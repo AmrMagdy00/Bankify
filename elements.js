@@ -9,6 +9,10 @@ export const DOM = {
     timer: document.querySelector(".timer"),
   },
 
+  forms: {
+    login: document.querySelector(".login"),
+  },
+
   containers: {
     app: document.querySelector(".app"),
     movements: document.querySelector(".movements"),

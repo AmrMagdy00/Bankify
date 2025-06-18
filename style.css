@@ -4,6 +4,25 @@
  * Have fun! 😁
  */
 
+.animated-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,8 +35,8 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  color: #444;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
   background-color: #f3f3f3;
   height: 100vh;
   padding: 2rem;
@@ -28,6 +47,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 .welcome {
@@ -92,10 +117,13 @@ nav {
   grid-template-columns: 4fr 3fr;
   grid-template-rows: auto repeat(3, 15rem) auto;
   gap: 2rem;
-
-  /* NOTE This creates the fade in/out anumation */
-  /* opacity: 0; */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   transition: all 1s;
+  opacity: 0;
 }
 
 .balance {
@@ -104,22 +132,29 @@ nav {
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 2rem;
+  animation: fadeIn 0.8s ease-out;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
 }
 
 .balance__label {
   font-size: 2.2rem;
   font-weight: 500;
   margin-bottom: -0.2rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .balance__date {
   font-size: 1.4rem;
-  color: #888;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .balance__value {
   font-size: 4.5rem;
   font-weight: 400;
+  color: #fff;
 }
 
 /* MOVEMENTS */
@@ -128,6 +163,11 @@ nav {
   background-color: #fff;
   border-radius: 1rem;
   overflow: scroll;
+  animation: fadeIn 1s ease-out;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1rem;
 }
 
 .movements__row {
@@ -151,7 +191,7 @@ nav {
   font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: 500;
-  color: #666;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .movements__type--deposit {
@@ -181,11 +221,14 @@ nav {
   font-weight: 500;
   text-transform: uppercase;
   margin-right: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .summary__value {
   font-size: 2.2rem;
   margin-right: 2.5rem;
+  color: #fff;
+  font-weight: 600;
 }
 
 .summary__value--in,
@@ -211,6 +254,12 @@ nav {
   border-radius: 1rem;
   padding: 3rem 4rem;
   color: #333;
+  animation: fadeIn 1.2s ease-out;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 1rem;
 }
 
 .operation--transfer {
@@ -261,11 +310,21 @@ h2 {
   padding: 0.3rem 1rem;
   border-radius: 0.7rem;
   transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .form__input:focus {
   outline: none;
   background-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.form__input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .form__label {
@@ -295,5 +354,231 @@ h2 {
 }
 
 .timer {
+  font-weight: 600;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Custom styles for movements */
+.movements__type--deposit {
+  background-color: #10b981;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.movements__type--withdrawal {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+/* Hover effects */
+.form__input:hover {
+  border-color: #3b82f6;
+}
+
+.form__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Loading animation for balance */
+.balance__value.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.balance__value.loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .operation {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Focus styles */
+.form__input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Error state */
+.form__input.error {
+  border-color: #ef4444;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Success animation */
+@keyframes success {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success {
+  animation: success 0.5s ease-in-out;
+}
+
+/* Add hover effects */
+.movements__row:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Update button styles */
+.login__btn,
+.form__btn,
+.btn--sort {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login__btn:hover,
+.form__btn:hover,
+.btn--sort:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Update form inputs */
+.form__input {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.8rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.form__input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.form__input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Update text colors for better contrast */
+.balance__label,
+.balance__date,
+.summary__label,
+.movements__date {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.balance__value,
+.summary__value {
+  color: #fff;
   font-weight: 600;
 }

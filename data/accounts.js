@@ -10,12 +10,13 @@ export const account1 = {
     { value: 70, date: "7/6/2025" },
     { value: 1300, date: "8/6/2025" },
   ],
+  balance: 0,
   interestRate: 1.2,
   pin: 1,
 };
 
 export const account2 = {
-  owner: "Jessica Davis",
+  owner: "2",
   movements: [
     { value: 5000, date: "1/6/2025" },
     { value: 3400, date: "2/6/2025" },
@@ -26,8 +27,10 @@ export const account2 = {
     { value: 8500, date: "7/6/2025" },
     { value: -30, date: "8/6/2025" },
   ],
+  balance: 0,
+
   interestRate: 1.5,
-  pin: 2222,
+  pin: 2,
 };
 
 export const account3 = {
@@ -55,6 +58,8 @@ export const account4 = {
     { value: 50, date: "4/6/2025" },
     { value: 90, date: "5/6/2025" },
   ],
+  balance: 0,
+
   interestRate: 1,
   pin: 4444,
 };
